@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="{{url_for('warehouse_index')}}" class="mr-2 ml-2">Back</a>
+<h1>Create New Warehouse</h1>
+<form action="{{ url_for('warehouse_created')}}" method = "post">
+    <div class="form-group">
+        <label for="location">Location :</label>
+        <input type="text" name="location" class="form-control">
+        <div class="form-group">
+            <label for="store">Store</label>
+            <select class="form-control" name="store_id">
+                {% for store in stores%}
+                    <option value="{{store.id}}">{{store.name}}</option>
+                {% endfor %}
+              
+            </select>
+          </div>
+        <button type="submit" class="btn btn-primary">Add a Warehouse</button>
+    </div>
+    
+    
+</form>
+{% endblock %}

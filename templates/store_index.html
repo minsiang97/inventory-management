@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="{{url_for('store_new')}}" class="mr-2 ml-2">Add Store</a>
+
+<h1>Store List</h1>
+<table class="table">
+    <thead class="thead-dark"> 
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Show</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for store in stores %}   
+      <tr>
+        <th scope="row">{{store.id}}</th>
+        <td>{{store.name}}</td>
+        <td><a href="{{url_for('store_show',store_id = store.id)}}">Show</a></td>
+        <td>
+            <form action="{{url_for('store_delete',store_id = store.id)}}" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </td>
+        
+      </tr>
+        {% endfor %}
+     
+    </tbody>
+  </table>
+{% endblock %}

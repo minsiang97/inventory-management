@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Warehouse: {{warehouse.location}}</h1>
+<p>Number of products : {{warehouse.products| length}}</p>
+<form action="{{ url_for('warehouse_update',warehouse_id = warehouse.id)}}" method = "post">
+    <div class="form-group"></div>
+        <label for="warehouse_location">Warehouse Location : </label>
+        <input type="text" name="warehouse_location" value="{{warehouse.location}}" class="form-control">
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+    
+    
+</form>
+{% endblock %}

@@ -1,4 +1,8 @@
+<h1 class="container text-center">Homepage</h1>
 {% extends "layout.html" %}
 {% block content %}
-<h1>Homepage</h1>
+
+<a href="{{url_for('store_index')}}" class="m-5">Store List</a>
+<a href="{{url_for('warehouse_index')}}" class="m-5">Warehouse List</a>
+<a href="{{url_for('product_index')}}" class="m-5">Product List</a>
 {% endblock %}

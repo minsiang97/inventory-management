@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="{{url_for('warehouse_new')}}" class="mr-2 ml-2">Add a Warehouse</a>
+
+<h1>Warehouse List</h1>
+<table class="table">
+    <thead class="thead-dark"> 
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Location</th>
+        <th scope="col">Show</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for warehouse in warehouses %}   
+      <tr>
+        <th scope="row">{{warehouse.id}}</th>
+        <td>{{warehouse.location}}</td>
+        <td><a href="{{url_for('warehouse_show',warehouse_id = warehouse.id)}}">Show</a></td>
+        <td>
+            <form action="{{url_for('warehouse_delete',warehouse_id = warehouse.id)}}" method="POST">
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </td>
+        
+      </tr>
+        {% endfor %}
+     
+    </tbody>
+  </table>
+{% endblock %}

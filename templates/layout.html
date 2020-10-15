@@ -11,6 +11,16 @@
 
 <body>
  <div class="container">
+    <a href="{{url_for('index')}}"class="m-5">Home</a> 
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+       {% for category, message in messages %}
+        <div class="alert alert-{{category}}" role="alert">
+            <p>{{message}}</p>
+        </div>
+       {% endfor %}
+     {% endif %}
+    {% endwith %} 
    {% block content %}
    {% endblock %}
  </div>

@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<a href="{{url_for('store_index')}}" class="mr-2 ml-2">Back</a>
+<h1>Store</h1>
+<form action="{{ url_for('store_created')}}" method = "post">
+    <div class="form-group"></div>
+        <label for="store_name">Store Name :</label>
+        <input type="text" name="store_name" class="form-control">
+        <button style="margin-top: 10px;" type="submit" class="btn btn-primary">Add a Store</button>
+    </div>
+    
+    
+</form>
+
+
+
+{% endblock %}
+       
